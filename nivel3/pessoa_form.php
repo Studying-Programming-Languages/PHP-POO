@@ -10,7 +10,7 @@ if (!empty($_REQUEST['action'])) {
         $result = pg_query($conn, "SELECT * FROM pessoa WHERE id='{$id}'");
         $pessoa = pg_fetch_assoc($result);
     }
-    else if ($_REQUEST['action'] == 'save') {
+    else if ($action_request == 'save') {
         $pessoa = $_POST;
         if (empty($_POST['id'])) {
             $result = pg_query($conn, "SELECT max(id) as next FROM pessoa");
